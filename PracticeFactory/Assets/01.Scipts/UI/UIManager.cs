@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
-    private static ItemManager _instance;
-    public static ItemManager Instance
+    [SerializeField] GameObject InventoryUI;
+    [SerializeField] GameObject EquipmentUI;
+    [SerializeField] GameObject chestUI;
+    private static UIManager _instance;
+    public static UIManager Instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = new GameObject("ItemManager").AddComponent<ItemManager>();
+                _instance = new GameObject("UIManager").AddComponent<UIManager>();
             }
             return _instance;
         }
@@ -34,4 +37,5 @@ public class ItemManager : MonoBehaviour
     }
 
     public void Init() { }
+    
 }

@@ -15,8 +15,12 @@ public class PlayerController : MonoBehaviour
     public float minXLook;
     public float maxXLook;
     private float camCurXRot;
-    public float loockSensitivity;
+    public float lookSensitivity;
     private Vector2 mouseDelta;
+
+    [Header("Jump")]
+    private bool isJumping;
+    private bool isDoubleJump;
 
     private Rigidbody _rigidbody;
 
@@ -51,11 +55,11 @@ public class PlayerController : MonoBehaviour
 
     private void CameraLook()
     {
-        camCurXRot += mouseDelta.y * loockSensitivity;
+        camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Math.Clamp(camCurXRot, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
 
-        transform.eulerAngles += new Vector3(0, mouseDelta.x * loockSensitivity, 0);
+        transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -67,7 +71,7 @@ public class PlayerController : MonoBehaviour
         else if (context.phase == InputActionPhase.Canceled) { curMovementInput = Vector2.zero; }
     }
 
-    public void OnLoock(InputAction.CallbackContext context)
+    public void OnLook(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
     }
@@ -80,23 +84,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    bool IsGrounded()
+    private bool IsGrounded()
     {
-        Ray[] rays = new Ray[4]
-        {
-            new Ray(transform.position + (transform.forward *0.2f)+ (transform.up *0.01f), Vector3.down),
-            new Ray(transform.position + (-transform.forward *0.2f)+ (transform.up *0.01f), Vector3.down),
-            new Ray(transform.position + (transform.right *0.2f)+ (transform.up *0.01f), Vector3.down),
-            new Ray(transform.position + (-transform.right *0.2f)+ (transform.up *0.01f), Vector3.down)
-        };
+        Ray ray = new Ray
+        (
+            transform.position, Vector3.down
+        );
 
-        for (int i = 0; i < rays.Length; i++)
+        DebugHelper.ShowRay(transform.position, Vector3.down * 1.5f, Color.green);
+
+        if (Physics.Raycast(ray, 1.5f, groundLayerMask))
         {
-            if (Physics.Raycast(rays[i], 0.1f, groundLayerMask))
-            {
-                return true;
-            }
+            return true;
         }
+
         return false;
     }
 }

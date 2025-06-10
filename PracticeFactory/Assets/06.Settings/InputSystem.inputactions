@@ -36,7 +36,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "421d1c5e-90bc-4b7c-8d0b-8e2951fc915f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -45,6 +45,15 @@
                     "name": "Click",
                     "type": "Button",
                     "id": "7b5edfe0-23aa-47a5-a0ed-585176e59d86",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "b904c0e2-fd2d-45d9-a17c-d5e12372474c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -132,7 +141,7 @@
                 {
                     "name": "",
                     "id": "31f20c97-90b0-4048-a281-e59c9ee751ab",
-                    "path": "",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -143,11 +152,22 @@
                 {
                     "name": "",
                     "id": "2f0a90c6-c7f3-42a6-9db7-8fb5597e97dd",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "142e2e23-25f9-49b5-9019-03f7e7e4f9d5",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -158,9 +178,18 @@
             "id": "cb5543d6-6695-41ff-a97a-b834f7f31537",
             "actions": [
                 {
-                    "name": "Inventory",
+                    "name": "Drag",
+                    "type": "Value",
+                    "id": "c654ba5a-ffbd-491c-8667-ed85725a18da",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Select",
                     "type": "Button",
-                    "id": "c5013656-217f-4ae9-aec9-c417f9acddf0",
+                    "id": "d33c26f7-f6ae-4aa6-8403-4815b4e283ca",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -170,12 +199,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "4906e6b4-26f2-4357-88e5-eb903af5a497",
-                    "path": "",
+                    "id": "602e38d2-8464-4a73-beaf-19dfbcaba799",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Inventory",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d7da53c-79a5-4b81-a32a-f809066e944a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

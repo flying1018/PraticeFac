@@ -1,20 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class CharacterManager : MonoBehaviour
 {
-    private static ItemManager _instance;
-    public static ItemManager Instance
+    private static CharacterManager _instance;
+    public static CharacterManager Instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = new GameObject("ItemManager").AddComponent<ItemManager>();
+                _instance = new GameObject("CharacterManager").AddComponent<CharacterManager>();
             }
             return _instance;
         }
+    }
+
+    public Player _player;
+
+    public Player Player
+    {
+        get { return _player; }
+        set { _player = value; }
     }
 
     private void Awake()
@@ -31,6 +37,7 @@ public class ItemManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
     }
 
     public void Init() { }
