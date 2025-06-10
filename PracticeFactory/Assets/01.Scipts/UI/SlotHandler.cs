@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SlotHandler : MonoBehaviour
+public class SlotHandler : MonoBehaviour, IDropHandler
 {
-    public int slotNum { get; private set; }
-    public int itemId { get; private set; }
-    public int Amount { get; private set; }
-
-    public void SetSlot(int slot, int amount, int Id = 1)
+    public void OnDrop(PointerEventData eventData)
     {
-        slotNum = slot;
-        itemId = Id;
-        Amount = amount;
+        GameObject dropItem = eventData.pointerDrag;
+
+        if (dropItem != null)
+        {
+            dropItem.transform.SetParent(this.transform);
+            dropItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        }
     }
 }

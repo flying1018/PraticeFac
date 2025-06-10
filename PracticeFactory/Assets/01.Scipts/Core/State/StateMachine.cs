@@ -22,7 +22,7 @@ public class StateMachine : MonoBehaviour
     }
     private void Update()
     {
-        currentState.OnUpdate();
+
     }
 
     public void ChangeState(PlayerState newState)

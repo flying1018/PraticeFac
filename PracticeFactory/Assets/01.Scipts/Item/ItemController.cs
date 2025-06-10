@@ -1,28 +1,32 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
-public class ItemController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class ItemController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    Vector3 DefaultPos;
-	
-    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) // 드래그 클릭시 호출
+    public static Vector2 DefaultPos;
+    private Canvas canvas;
+    
+    private void Awake()
     {
-        DefaultPos = transform.position; // 초기 위치 정보
-        GetComponent<Image>().raycastTarget = false; 
+        canvas = GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<Canvas>();
     }
-	
-    // 드래그 중
-    void IDragHandler.OnDrag(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        Vector3 currentPos = Camera.main.ScreenToWorldPoint(eventData.position);
-        this.transform.position = currentPos;
+        DefaultPos = transform.position;
+        transform.SetParent(canvas.transform);
+        GetComponent<Image>().raycastTarget = false;
     }
-	
-    // 드래그 끝
-    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
+
+    public void OnDrag(PointerEventData eventData)
     {
-        this.transform.position = DefaultPos;
+        Vector2 currentPos = eventData.position; 
+        transform.position = currentPos;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = DefaultPos;
         GetComponent<Image>().raycastTarget = true;
     }
 }
