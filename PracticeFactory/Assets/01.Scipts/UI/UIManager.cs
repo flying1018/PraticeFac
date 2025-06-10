@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject InventoryUI;
-    [SerializeField] GameObject EquipmentUI;
-    [SerializeField] GameObject chestUI;
+    private GameObject InventoryUI;
+    private GameObject EquipmentUI;
+    private GameObject chestUI;
     private static UIManager _instance;
     public static UIManager Instance
     {
@@ -34,8 +34,20 @@ public class UIManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        InventoryUI = GameObject.FindGameObjectWithTag("InventoryUI");
+        EquipmentUI = GameObject.FindGameObjectWithTag("EquipmentUI");
+        chestUI = GameObject.FindGameObjectWithTag("chestUI");
     }
 
     public void Init() { }
-    
+
+    public void ShowInventory()
+    {
+        InventoryUI.SetActive(true);
+    }
+
+    public void HideInventory()
+    {
+        InventoryUI.SetActive(false);
+    }
 }

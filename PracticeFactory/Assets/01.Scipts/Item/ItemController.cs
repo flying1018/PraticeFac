@@ -3,30 +3,40 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class ItemController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public static Vector2 DefaultPos;
     private Canvas canvas;
-    
-    private void Awake()
+    private CanvasGroup canvasGroup;
+    private RectTransform rectTransform;
+    private Transform originalParent;
+
+    void Awake()
     {
         canvas = GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<Canvas>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        rectTransform = GetComponent<RectTransform>();
     }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        DefaultPos = transform.position;
-        transform.SetParent(canvas.transform);
-        GetComponent<Image>().raycastTarget = false;
+        originalParent = transform.parent;
+
+        transform.SetParent(canvas.transform); // 드래그 중엔 최상단으로
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 currentPos = eventData.position; 
-        transform.position = currentPos;
+        rectTransform.position = currentPos;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = DefaultPos;
-        GetComponent<Image>().raycastTarget = true;
+        if (transform.parent == canvas.transform)
+        {
+            transform.SetParent(originalParent);
+            rectTransform.anchoredPosition = Vector2.zero;
+        }
+
+        canvasGroup.blocksRaycasts = true;
     }
 }

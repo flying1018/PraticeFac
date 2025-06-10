@@ -3900,7 +3900,7 @@ GameObject:
   - component: {fileID: 958873961}
   m_Layer: 5
   m_Name: Equipment
-  m_TagString: Untagged
+  m_TagString: EquipmentUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4567,7 +4567,7 @@ GameObject:
   - component: {fileID: 1050057163}
   m_Layer: 5
   m_Name: PlayerUI
-  m_TagString: Untagged
+  m_TagString: PlayerUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4644,7 +4644,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 330585545}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -5992,7 +5992,7 @@ GameObject:
   - component: {fileID: 1384719175}
   m_Layer: 5
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: ChestUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8256,7 +8256,7 @@ GameObject:
   - component: {fileID: 2130820006}
   m_Layer: 5
   m_Name: PlayerItem
-  m_TagString: Untagged
+  m_TagString: PlayerUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
