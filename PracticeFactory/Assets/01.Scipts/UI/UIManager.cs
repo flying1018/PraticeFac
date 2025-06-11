@@ -43,11 +43,37 @@ public class UIManager : MonoBehaviour
 
     public void ShowInventory()
     {
-        InventoryUI.SetActive(true);
+        if (InventoryUI != null)
+            InventoryUI.SetActive(true);
     }
 
     public void HideInventory()
     {
-        InventoryUI.SetActive(false);
+        if (InventoryUI != null)
+            InventoryUI.SetActive(false);
+    }
+
+    public void ShowEquipment()
+    {
+        if (EquipmentUI != null)
+            EquipmentUI.SetActive(true);
+    }
+
+    public void HideEquipment()
+    {
+        if (EquipmentUI != null)
+            EquipmentUI.SetActive(false);
+    }
+    
+        public void ShowChest()
+    {
+        if (InventoryUI != null)
+            InventoryUI.SetActive(true);
+    }
+
+    public void HideChest()
+    {
+        if (chestUI != null)
+            chestUI.SetActive(false);
     }
 }
