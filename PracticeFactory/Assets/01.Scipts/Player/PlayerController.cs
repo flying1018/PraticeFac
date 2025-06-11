@@ -23,10 +23,12 @@ public class PlayerController : MonoBehaviour
     private bool isDoubleJump;
 
     private Rigidbody _rigidbody;
+    private StateMachine stateMachine;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        stateMachine = GetComponent<StateMachine>();
     }
 
     private void Start()
@@ -74,6 +76,14 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            stateMachine.ChangeState(StateMachine.PlayerState.Inventory);
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)

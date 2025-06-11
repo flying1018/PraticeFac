@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba070b85582e34187bd0b0f33850ad5a, type: 3}
   m_Name: hardHat
   m_EditorClassIdentifier: 
-  itemId: 0
-  itemName: 
-  description: 
-  stack: 0
-  icon: {fileID: 0}
-  itemType: 0
+  itemId: 101
+  itemName: "\uC548\uC804\uBAA8"
+  description: "\uB534\uB534"
+  stack: 1
+  icon: {fileID: 21300000, guid: f78b02b27929a4d5395f14707f2f7de8, type: 3}
+  itemType: 1

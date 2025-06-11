@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    private GameObject InventoryUI;
-    private GameObject EquipmentUI;
-    private GameObject chestUI;
+    [SerializeField] private GameObject InventoryUI;
+    [SerializeField] private GameObject EquipmentUI;
+    [SerializeField] private GameObject chestUI;
     private static UIManager _instance;
     public static UIManager Instance
     {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new GameObject("UIManager").AddComponent<UIManager>();
-            }
-            return _instance;
-        }
+        get { return _instance; }
     }
 
     private void Awake()
@@ -34,9 +27,6 @@ public class UIManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        InventoryUI = GameObject.FindGameObjectWithTag("InventoryUI");
-        EquipmentUI = GameObject.FindGameObjectWithTag("EquipmentUI");
-        chestUI = GameObject.FindGameObjectWithTag("chestUI");
     }
 
     public void Init() { }
@@ -64,11 +54,11 @@ public class UIManager : MonoBehaviour
         if (EquipmentUI != null)
             EquipmentUI.SetActive(false);
     }
-    
-        public void ShowChest()
+
+    public void ShowChest()
     {
-        if (InventoryUI != null)
-            InventoryUI.SetActive(true);
+        if (chestUI != null)
+            chestUI.SetActive(true);
     }
 
     public void HideChest()
