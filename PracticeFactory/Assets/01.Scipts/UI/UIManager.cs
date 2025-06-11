@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        DebugHelper.Log("UI매니저 Awake");
     }
 
     public void Init() { }

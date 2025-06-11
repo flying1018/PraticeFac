@@ -84,6 +84,8 @@ public class StateMachine : MonoBehaviour
     {
         if (!isInventory)
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0f;
             isInventory = true;
             DebugHelper.Log("인벤토리 상태 진입");
 
@@ -93,6 +95,8 @@ public class StateMachine : MonoBehaviour
         }
         else if (isInventory)
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
             isInventory = false;
             DebugHelper.Log("인벤토리 상태 해제");
 

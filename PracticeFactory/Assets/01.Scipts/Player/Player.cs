@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public PlayerController controller;
 
+    public int Hp = 100;
+
     private void Awake()
     {
         CharacterManager.Instance.Player = this;

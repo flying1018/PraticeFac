@@ -6006,8 +6006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8b21a4acd1d4da98d6caf63f36d463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryUI: {fileID: 958873960}
-  EquipmentUI: {fileID: 2130820005}
+  InventoryUI: {fileID: 2130820005}
+  EquipmentUI: {fileID: 958873960}
   chestUI: {fileID: 1384719174}
 --- !u!1 &1377865724
 GameObject:
