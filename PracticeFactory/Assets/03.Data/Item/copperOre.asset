@@ -18,3 +18,5 @@ MonoBehaviour:
   stack: 100
   icon: {fileID: 21300000, guid: 5a76c8be04aac423589cf49fcd160c01, type: 3}
   itemType: 5
+  itemPrefab: {fileID: 6971717524821438816, guid: f1686929c8ba7442cb8ff95b45876029,
+    type: 3}
