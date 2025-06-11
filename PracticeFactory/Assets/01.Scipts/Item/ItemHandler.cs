@@ -7,10 +7,20 @@ public class ItemHandler : MonoBehaviour
     public int slotNum { get; private set; }
     public int Amount { get; private set; }
     public ItemInfo itemInfo;
-    public void Init(ItemInfo info, int amount)
+    [SerializeField] private Image itemImage; 
+
+    public void Init(ItemInfo item, int amount)
     {
-        itemInfo = info;
+        itemInfo = item;
         Amount = amount;
-        GetComponent<Image>().sprite = info.icon;
+
+        if (itemImage == null)
+            itemImage = GetComponent<Image>();
+
+        if (itemImage != null && item.icon != null)
+        {
+            itemImage.sprite = item.icon;
+            itemImage.enabled = true;
+        }
     }
 }

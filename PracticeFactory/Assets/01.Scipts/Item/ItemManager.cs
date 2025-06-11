@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    public Inventory _inventory { get; private set; }
+    public Inventory Inventory => _inventory;
     private static ItemManager _instance;
     public static ItemManager Instance
     {

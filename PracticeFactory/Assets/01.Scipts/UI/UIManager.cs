@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
     {
         if (InventoryUI != null)
             InventoryUI.SetActive(true);
+        
+        ItemManager.Instance.Inventory.OpenInventory();
     }
 
     public void HideInventory()

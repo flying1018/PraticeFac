@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public PlayerController controller;
 
     public int Hp = 100;
+    public int InventorySlotCount = 12;
 
     private void Awake()
     {

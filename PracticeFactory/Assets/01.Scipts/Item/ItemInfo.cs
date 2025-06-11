@@ -18,4 +18,5 @@ public class ItemInfo : ScriptableObject
     public int stack;
     public Sprite icon;
     public ItemType itemType;
+    public GameObject itemPrefab;
 }

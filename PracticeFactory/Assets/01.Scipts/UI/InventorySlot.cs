@@ -5,22 +5,22 @@ using UnityEngine;
 public class InventorySlot : MonoBehaviour
 {
     public GameObject slotPrefab; // Slot 프리팹
-    public Transform slotParent; // 슬롯들을 담을 부모 오브젝트 (GridLayoutGroup)
-    public int SlotCount = 12;
+    public Transform slotParent; // 슬롯들을 담을 부모 오브젝트
 
-    private List<GameObject> slotList = new List<GameObject>();
-
-    private void Start()
-    {
-        CreateSlots(SlotCount);
-    }
+    public List<Transform> slotList = new List<Transform>();
 
     public void CreateSlots(int count)
     {
+        foreach (Transform child in slotParent)
+        {
+            Destroy(child.gameObject);
+        }
+        slotList.Clear();
+        
         for (int i = 0; i < count; i++)
         {
             GameObject newSlot = Instantiate(slotPrefab, slotParent);
-            slotList.Add(newSlot);
+            slotList.Add(newSlot.transform);
         }
     }
 

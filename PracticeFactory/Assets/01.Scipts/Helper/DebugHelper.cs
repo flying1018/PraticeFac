@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class DebugHelper : MonoBehaviour
 {
-    public static void Log(string _text)
+    public static void Log(string text)
     {
 #if UNITY_EDITOR
-        Debug.Log(_text);
+        Debug.Log(text);
+#endif
+    }
+
+    public static void LogWarning(string text)
+    {
+#if UNITY_EDITOR
+        Debug.LogWarning(text);
 #endif
     }
 
